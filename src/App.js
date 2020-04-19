@@ -15,6 +15,7 @@ class App extends Component{
   });
 }
 
+
 addTheTodo(){
   const {todo,list} = this.state
   if(todo === "") return
@@ -30,6 +31,9 @@ addTheTodo(){
     todo: ""
   })
 }
+
+
+
 doneTheTodo(e){
    const {value,checked} = e.target
    const {list} = this.state
@@ -40,6 +44,7 @@ doneTheTodo(e){
      list
    })
 }
+
 renderList(){
   const  {list} = this.state
   const data = list.map((d,i)=>{
@@ -48,10 +53,10 @@ renderList(){
       <Mylist key={i} onChange={this.doneTheTodo.bind(this)} done={d.done} name={d.name} />
     )
   } )
-   return data
-  
+   return data 
 }
-render() {
+
+  render() {
   return (
     <div className="container">
       <div className="jumbotron mt-5">
@@ -71,7 +76,7 @@ render() {
 }
 }
 
-const Mylist = (props) =>{
+  const Mylist = (props) =>{
   let name
   let myClass
   if(props.done){
